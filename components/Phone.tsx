@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 interface PhoneProps extends HTMLAttributes<HTMLDivElement> {
-  className: string;
+  className?: string;
   imgSrc: string;
   dark?: boolean;
 }
@@ -11,7 +11,7 @@ function Phone({ className, imgSrc, dark = false, ...props }: PhoneProps) {
     <div
       className={cn(
         "relative pointer-events-none z-50 overflow-hidden",
-        className
+        className,
       )}
       {...props}
     >
