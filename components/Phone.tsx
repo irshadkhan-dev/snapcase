@@ -11,7 +11,7 @@ function Phone({ className, imgSrc, dark = false, ...props }: PhoneProps) {
     <div
       className={cn(
         "relative pointer-events-none z-50 overflow-hidden",
-        className,
+        className
       )}
       {...props}
     >
@@ -25,7 +25,7 @@ function Phone({ className, imgSrc, dark = false, ...props }: PhoneProps) {
       />
 
       <div className="absolute -z-10 inset-0">
-        <img src={imgSrc} className="object-cover" />
+        <img src={imgSrc} className="object-cover min-w-full min-h-full" />
       </div>
     </div>
   );
