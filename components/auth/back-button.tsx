@@ -10,8 +10,7 @@ interface BackButtonProps {
 const BackButton = ({ href, label }: BackButtonProps) => {
   return (
     <Button variant={"link"} size={"sm"} className="w-full font-normal">
-      <Link href={href} />
-      {label}
+      <Link href={href}>{label}</Link>
     </Button>
   );
 };

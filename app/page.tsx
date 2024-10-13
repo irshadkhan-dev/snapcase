@@ -6,6 +6,7 @@ import { Icons } from "@/components/Icons";
 import { Reviews } from "@/components/Reviews";
 import { Button } from "@/components/ui/button";
 import { Footer } from "@/components/footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -254,9 +255,11 @@ export default function Home() {
                 </li>
               </div>
               <div className="flex justify-center mt-10">
-                <Button className="flex gap-1.5 px-10 py-6">
-                  Create your own case <ArrowRight className="h-5 w-5" />
-                </Button>
+                <Link href={"/configure/upload"}>
+                  <Button className="flex gap-1.5 px-10 py-6">
+                    Create your own case <ArrowRight className="h-5 w-5" />
+                  </Button>
+                </Link>
               </div>
             </ul>
           </div>

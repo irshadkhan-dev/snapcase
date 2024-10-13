@@ -35,10 +35,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={recursive.className}>
-        <RootLayout2>
-          <Providers>{children}</Providers>
-          <Toaster />
-        </RootLayout2>
+        <Providers>
+          <Navbar />
+          <main className="flex grainy-light flex-col min-h-[calc(100vh-3.5rem-1px)]">
+            <div className="flex-1 flex h-full flex-col">{children}</div>
+          </main>
+          <Footer />
+        </Providers>
+        <Toaster />
       </body>
     </html>
   );

@@ -1,3 +1,4 @@
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import React from "react";
 
 export default function AuthLayout({
@@ -6,8 +7,9 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="h-full flex items-center justify-center w-full">
+    <MaxWidthWrapper className="flex flex-col justify-center items-center gap-20 sm:gap-32">
+      <div className=""></div>
       {children}
-    </div>
+    </MaxWidthWrapper>
   );
 }

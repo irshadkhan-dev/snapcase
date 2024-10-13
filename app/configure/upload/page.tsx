@@ -19,8 +19,10 @@ export default function UploadPage() {
 
   const { startUpload, isUploading } = useUploadThing("imageUploader", {
     onClientUploadComplete: ([data]) => {
+      console.log("i am here toooo");
       const configId = data.serverData.configId;
       startTransition(() => {
+        console.log("here i am here");
         router.push(`/configure/design?id=${configId}`);
       });
     },
@@ -30,6 +32,7 @@ export default function UploadPage() {
   });
 
   const onDropAccepted = (acceptedFiles: File[]) => {
+    console.log("yepp i ama started");
     startUpload(acceptedFiles, { configId: undefined });
     setIsDragOver(false);
   };
@@ -50,7 +53,7 @@ export default function UploadPage() {
         "relative w-full h-full my-16 p-2 bg-gray-900/5 ring-gray-900/10 flex-1 rounded-xl lg:rounded-2xl ring-1 ring-inset flex flex-col justify-center items-center",
         {
           "bg-blue-900/10 ring-blue-900/25": isDragOver,
-        },
+        }
       )}
     >
       <div className="relative w-full flex justify-center flex-col items-center flex-1">

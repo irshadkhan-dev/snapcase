@@ -3,9 +3,10 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { ArrowRight, Ghost } from "lucide-react";
+import { auth } from "@/auth";
 
 const Navbar = () => {
-  const user = undefined;
+  const user = false;
   const isAdmin = false;
   return (
     <div className="sticky w-full h-14 top-0 z-[100] border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
@@ -48,13 +49,7 @@ const Navbar = () => {
             ) : (
               <>
                 <Link
-                  href={"/api/auth/signin"}
-                  className={buttonVariants({ size: "sm", variant: "ghost" })}
-                >
-                  Sign up
-                </Link>
-                <Link
-                  href={"/api/auth/signin"}
+                  href={"/auth/login"}
                   className={buttonVariants({ size: "sm", variant: "ghost" })}
                 >
                   Sign in
