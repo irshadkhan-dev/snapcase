@@ -4,10 +4,12 @@ import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { ArrowRight, Ghost } from "lucide-react";
 import { auth } from "@/auth";
+import { useSession } from "next-auth/react";
 
-const Navbar = () => {
-  const user = false;
-  const isAdmin = false;
+const Navbar = async () => {
+  const session = await auth();
+  const user = session?.user;
+  const isAdmin = session?.user.role === "ADMIN";
   return (
     <div className="sticky w-full h-14 top-0 z-[100] border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
       <MaxWidthWrapper>
@@ -20,7 +22,7 @@ const Navbar = () => {
             {user ? (
               <>
                 <Link
-                  href={"/api/auth/signout"}
+                  href={"/setting"}
                   className={buttonVariants({ size: "sm", variant: "ghost" })}
                 >
                   Sign out

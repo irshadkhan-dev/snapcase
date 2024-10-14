@@ -27,7 +27,7 @@ const CardWrapper = ({
       {showSocial && (
         <CardFooter>
           {" "}
-          <Social />
+          <Social redirectUrl="/setting" />
         </CardFooter>
       )}
     </Card>

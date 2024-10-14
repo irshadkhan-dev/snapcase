@@ -12,6 +12,12 @@ enum UserRole {
   USER
 }
 
+enum OrderStatus {
+  fulfilled
+  shipped
+  awaiting_shipment
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -20,40 +26,94 @@ model User {
   image         String?
   accounts      Account[]
   password      String?
-  role          UserRole @default(USER)
- 
+  role          UserRole  @default(USER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  Order         Order[]
+
   @@map("users")
 }
 
+model Configuration {
+  id              String        @id @default(cuid())
+  imageUrl        String
+  croppedImageUrl String?
+  color           CaseColor?
+  finish          CaseFinish?
+  model           PhoneModel?
+  material        CaseMaterial?
+  height          Int
+  width           Int
+  Order           Order[]
+}
 
+model Order {
+  id                String           @id @default(cuid())
+  configurationId   String
+  configuration     Configuration    @relation(fields: [configurationId], references: [id])
+  userId            String
+  user              User             @relation(fields: [userId], references: [id])
+  amount            Float
+  status            OrderStatus      @default(awaiting_shipment)
+  ShippingAddress   ShippingAddress? @relation(fields: [shippingAddressId], references: [id])
+  shippingAddressId String?
+  BillingAddress    BillingAddress?  @relation(fields: [billingAddressId], references: [id])
+  billingAddressId  String?
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+}
+
+model ShippingAddress {
+  id          String  @id @default(cuid())
+  name        String
+  street      String
+  city        String
+  postalCode  String
+  country     String
+  state       String
+  phoneNumber String
+  order       Order[]
+}
+
+model BillingAddress {
+  id          String  @id @default(cuid())
+  name        String
+  street      String
+  city        String
+  postalCode  String
+  country     String
+  state       String
+  phoneNumber String
+  order       Order[]
+}
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String  @map("user_id")
-  type               String
-  provider           String
-  providerAccountId  String  @map("provider_account_id")
-  refresh_token      String? @db.Text
-  access_token       String? @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String? @db.Text
-  session_state      String?
- 
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
+
   @@unique([provider, providerAccountId])
   @@map("accounts")
 }
 
 model VerificationToken {
-  id String @id @default(uuid())
-  email String
-  token String @unique
+  id      String   @id @default(uuid())
+  email   String
+  token   String   @unique
   expires DateTime
 
-  @@unique([email ,token])
+  @@unique([email, token])
 }
 
 enum PhoneModel {
@@ -80,16 +140,4 @@ enum CaseColor {
   black
   blue
   rose
-}
-
-model Configuration {
-  id              String        @id @default(cuid())
-  imageUrl        String
-  croppedImageUrl String?
-  color           CaseColor?
-  finish          CaseFinish?
-  model           PhoneModel?
-  material        CaseMaterial?
-  height          Int
-  width           Int
 }
