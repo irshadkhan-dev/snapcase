@@ -1,11 +1,11 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { ArrowRight, Check, Star } from "lucide-react";
-import Image from "next/image";
+
 import Phone from "@/components/Phone";
 import { Icons } from "@/components/Icons";
 import { Reviews } from "@/components/Reviews";
 import { Button } from "@/components/ui/button";
-import { Footer } from "@/components/footer";
+
 import Link from "next/link";
 
 export default function Home() {

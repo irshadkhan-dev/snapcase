@@ -1,24 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
 import Providers from "@/components/Providers";
 import { Recursive } from "next/font/google";
-import { usePathname } from "next/navigation";
-import RootLayout2 from "@/components/rootLayout";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 const recursive = Recursive({ subsets: ["latin"] });
 

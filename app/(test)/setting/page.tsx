@@ -1,6 +1,4 @@
 import { auth, signOut } from "@/auth";
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
 
 import React from "react";
 
@@ -11,7 +9,7 @@ const SettingPage = async () => {
     <div>
       {JSON.stringify(session)}
       <form
-        action={async (formData) => {
+        action={async () => {
           "use server";
           await signOut({ redirectTo: "/" });
         }}

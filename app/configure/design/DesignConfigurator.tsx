@@ -1,6 +1,6 @@
 "use client";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import React, { use, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import NextImage from "next/image";
 import { cn, formatPrice } from "@/lib/utils";
 import { Rnd } from "react-rnd";
@@ -24,7 +24,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, ChevronsUpDown } from "lucide-react";
 import { BASE_PRICE } from "@/config/product";
-import { base } from "framer-motion/client";
+
 import { useUploadThing } from "@/lib/uploadthing";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
@@ -138,7 +138,8 @@ const DesignConfigurator = ({
       const file = new File([blob], "filename.png", { type: "image/png" });
 
       await startUpload([file], { configId });
-    } catch (err) {
+    } catch (error) {
+      console.log(error);
       toast({
         title: "Something went wrong",
         description: "There was a problem saving your config, please try again",

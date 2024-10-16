@@ -1,5 +1,5 @@
 "use client";
-import { main } from "framer-motion/client";
+
 import { usePathname } from "next/navigation";
 import React from "react";
 import Navbar from "./Navbar";

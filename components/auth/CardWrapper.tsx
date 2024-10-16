@@ -1,9 +1,7 @@
 import React from "react";
-import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
+import { Card, CardFooter, CardHeader } from "../ui/card";
 import Header from "./header";
 import Social from "./Social";
-import BackButton from "./back-button";
-import FormError from "../form-error";
 
 interface cardWrapperprops {
   headerLabel: string;

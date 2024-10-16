@@ -1,5 +1,5 @@
 import { createUploadthing, type FileRouter } from "uploadthing/next";
-import sharp, { Sharp } from "sharp";
+import sharp from "sharp";
 import z from "zod";
 import { db } from "@/app/db";
 
@@ -10,7 +10,7 @@ export const ourFileRouter = {
     .input(
       z.object({
         configId: z.string().optional(),
-      }),
+      })
     )
     .middleware(async ({ input }) => {
       return { input };

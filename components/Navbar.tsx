@@ -2,9 +2,8 @@ import React from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
-import { ArrowRight, Ghost } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { auth } from "@/auth";
-import { useSession } from "next-auth/react";
 
 const Navbar = async () => {
   const session = await auth();

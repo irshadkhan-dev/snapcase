@@ -3,7 +3,7 @@
 import React, { HTMLAttributes, useEffect, useRef, useState } from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { useInView } from "framer-motion";
-import { div } from "framer-motion/client";
+
 import { cn } from "@/lib/utils";
 import Phone from "./Phone";
 
@@ -92,7 +92,7 @@ function Review({ imgSrc, className, ...props }: ReviewProps) {
     <div
       className={cn(
         "animate-fade-in rounded-[2.25rem] bg-white p-6 opacity-0 shadow-xl shadow-slate-900/5",
-        className,
+        className
       )}
       style={{ animationDelay }}
       {...props}

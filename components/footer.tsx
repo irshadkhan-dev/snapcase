@@ -1,7 +1,6 @@
 import React from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
-import { div } from "framer-motion/client";
 
 export const Footer = () => {
   return (

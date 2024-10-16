@@ -1,11 +1,11 @@
 "use client";
 
 import { Loader2 } from "lucide-react";
-import { useSession } from "next-auth/react";
+
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const page = () => {
+const AuthPage = () => {
   const router = useRouter();
 
   const [configId, setConfigId] = useState<string | null>(null);
@@ -31,4 +31,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default AuthPage;
