@@ -54,6 +54,7 @@ model Order {
   userId            String
   user              User             @relation(fields: [userId], references: [id])
   amount            Float
+  isPaid            Boolean          @default(false)
   status            OrderStatus      @default(awaiting_shipment)
   ShippingAddress   ShippingAddress? @relation(fields: [shippingAddressId], references: [id])
   shippingAddressId String?
@@ -70,8 +71,8 @@ model ShippingAddress {
   city        String
   postalCode  String
   country     String
-  state       String
-  phoneNumber String
+  state       String?
+  phoneNumber String?
   order       Order[]
 }
 
@@ -82,8 +83,8 @@ model BillingAddress {
   city        String
   postalCode  String
   country     String
-  state       String
-  phoneNumber String
+  state       String?
+  phoneNumber String?
   order       Order[]
 }
 

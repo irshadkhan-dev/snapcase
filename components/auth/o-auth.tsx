@@ -8,7 +8,9 @@ const AuthLoginPage = () => {
       headerLabel="Login with Google or Github"
       headerTag="Login"
       showSocial
-    ></CardWrapper>
+    >
+      {""}
+    </CardWrapper>
   );
 };
 

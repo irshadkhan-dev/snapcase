@@ -7,14 +7,14 @@ import FormError from "../form-error";
 
 interface cardWrapperprops {
   headerLabel: string;
-
+  children: React.ReactNode;
   showSocial?: boolean;
   headerTag: string;
 }
 
 const CardWrapper = ({
   headerLabel,
-
+  children,
   showSocial,
   headerTag,
 }: cardWrapperprops) => {
@@ -23,7 +23,7 @@ const CardWrapper = ({
       <CardHeader>
         <Header label={headerLabel} className="" headerTag={headerTag} />
       </CardHeader>
-
+      {children}
       {showSocial && (
         <CardFooter>
           {" "}

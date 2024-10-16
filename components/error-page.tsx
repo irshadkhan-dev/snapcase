@@ -7,8 +7,6 @@ const ErrorCard = () => {
     <CardWrapper
       headerLabel="Oops! something went wrong"
       headerTag="Authentication Error"
-      backbuttonHref="/auth/login"
-      backbuttonLabel="Back to Login"
     >
       <div className="text-destructive w-full flex items-center justify-center">
         <ExclamationTriangleIcon className="text-destructive" />
