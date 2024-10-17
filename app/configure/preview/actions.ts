@@ -24,7 +24,6 @@ export const createCheckOutSession = async ({
 
   const session = await auth();
   const user = session?.user;
-  console.log(user);
 
   if (!user) {
     throw new Error("You need to be logged in!");

@@ -1,14 +1,22 @@
 import React from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { ArrowRight } from "lucide-react";
-import { auth } from "@/auth";
+import { auth, signOut } from "@/auth";
 
 const Navbar = async () => {
   const session = await auth();
   const user = session?.user;
-  const isAdmin = session?.user.role === "ADMIN";
+  const isAdmin = user?.email === process.env.ADMIN_EMAIL;
+
+  const handleSignOut = async () => {
+    "use server";
+    await signOut({
+      redirectTo: "/",
+    });
+  };
+
   return (
     <div className="sticky w-full h-14 top-0 z-[100] border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
       <MaxWidthWrapper>
@@ -20,16 +28,24 @@ const Navbar = async () => {
           <div className="h-full flex items-center space-x-4">
             {user ? (
               <>
-                <Link
-                  href={"/setting"}
+                <form action={handleSignOut}>
+                  <Button
+                    type="submit"
+                    className={buttonVariants({ size: "sm", variant: "ghost" })}
+                  >
+                    Sign out
+                  </Button>
+                </form>
+                {/* <Link
+                  href={"/api/auth/signout"}
                   className={buttonVariants({ size: "sm", variant: "ghost" })}
                 >
                   Sign out
-                </Link>
+                </Link> */}
 
                 {isAdmin ? (
                   <Link
-                    href={"/api/auth/signout"}
+                    href={"/dashboard"}
                     className={buttonVariants({ size: "sm", variant: "ghost" })}
                   >
                     Dashboard

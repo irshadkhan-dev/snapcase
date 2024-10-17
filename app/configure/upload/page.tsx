@@ -19,10 +19,8 @@ export default function UploadPage() {
 
   const { startUpload, isUploading } = useUploadThing("imageUploader", {
     onClientUploadComplete: ([data]) => {
-      console.log("i am here toooo");
       const configId = data.serverData.configId;
       startTransition(() => {
-        console.log("here i am here");
         router.push(`/configure/design?id=${configId}`);
       });
     },
@@ -32,7 +30,6 @@ export default function UploadPage() {
   });
 
   const onDropAccepted = (acceptedFiles: File[]) => {
-    console.log("yepp i ama started");
     startUpload(acceptedFiles, { configId: undefined });
     setIsDragOver(false);
   };
