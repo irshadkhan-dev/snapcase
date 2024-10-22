@@ -1,6 +1,35 @@
+# Snapcase
+
+Snapcase is a personalized platform where users can upload photos and design their own custom phone cases. It allows users to preview their design in real-time and order the case with integrated payment processing.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Live Demo
+- **You can check out the live version here**: https://snapcase-seven.vercel.app/
+
+## Features
+
+- **Photo Upload & Customization**: Upload your own images and adjust the design to fit your phone case.
+- **Live Design Preview**: Preview your custom phone case in real-time before ordering.
+- **Multiple Case Options**: Choose from various case models and colors.
+- **Secure Payments**: Integrated with Stripe for safe and reliable transactions.
+- **Authentication**: Users can sign up or log in using OAuth via Auth.js.
+
+## Technologies Used
+
+- **Frontend**: Next.js, React, TypeScript, Tailwind
+- **Backend**: Node.js. Typescript
+- **Database**: PostgreSQL, Prisma ORM
+- **Payment Processing**: Stripe
+- **Authentication**: Auth.js (OAuth)
+
 ## Getting Started
+
+### Clone the repository:
+
+```bash
+git clone https://github.com/your-username/snapcase.git
+cd snapcase
 
 First, run the development server:
 
